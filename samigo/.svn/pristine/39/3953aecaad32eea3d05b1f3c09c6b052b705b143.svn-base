@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+    <parent>
+        <groupId>org.sakaiproject</groupId>
+        <artifactId>master</artifactId>
+        <version>2.9-SNAPSHOT</version>
+		<relativePath>../master/pom.xml</relativePath>
+    </parent>
+	
+	<name>Sakai Samigo Project (base POM)</name>
+	<groupId>org.sakaiproject.samigo</groupId>
+	<artifactId>samigo</artifactId>
+	<version>2.9.2-SNAPSHOT</version>
+	<packaging>pom</packaging>
+    
+	<modules>
+		<module>samigo-api</module>
+		<module>samigo-app</module>
+		<module>samigo-audio</module>
+		<module>samigo-deploy</module>
+		<module>samigo-help</module>
+		<module>samigo-hibernate</module>
+		<module>samigo-pack</module>
+		<module>samigo-qti</module>
+		<module>samigo-services</module>
+		<module>samigo-cp</module>
+		<module>samigo-archive/sam-handlers</module>
+		<module>samlite-impl</module>
+	</modules>
+	
+	<scm>
+		<connection>scm:svn:https://source.sakaiproject.org/svn/sam/branches/samigo-2.9.x</connection>
+		<developerConnection>scm:svn:https://source.sakaiproject.org/svn/sam/branches/samigo-2.9.x</developerConnection>
+		<url>https://source.sakaiproject.org/svn/sam/branches/samigo-2.9.x</url>
+	</scm>
+	
+	<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-audio</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-cp</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-api</artifactId>   
+                <version>${project.version}</version>  
+                <type>jar</type>  
+                <scope>provided</scope>  
+            </dependency>
+            <dependency>  
+                <groupId>org.sakaiproject.samigo</groupId>   
+                <artifactId>samigo-services</artifactId>  
+                <version>${project.version}</version>  
+                <type>jar</type>  
+                <scope>provided</scope>  
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-hibernate</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samigo-qti</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <!-- Samigo Lite -->
+            <dependency>
+                <groupId>org.sakaiproject.samigo</groupId>
+                <artifactId>samlite-impl</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>org.sakaiproject.edu-services.sections</groupId>
+                <artifactId>sections-impl-standalone</artifactId>
+                <version>${sakai.edu-services.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- Sakai-embedded version -->
+            <dependency>
+                <groupId>org.sakaiproject.edu-services.sections</groupId>
+                <artifactId>sections-impl</artifactId>
+                <version>${sakai.edu-services.version}</version>
+            </dependency>
+	    <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math</artifactId>
+                <version>2.2</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+    <reporting>
+        <plugins>
+            <!-- Retest this plugin; currently causes release plugin to fail -->
+            <!--
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>1.1</version>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>dependency-updates-report</report>
+                            <report>plugin-updates-report</report>
+                            <report>property-updates-report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+            -->
+        </plugins>
+    </reporting>
+    
+    <repositories> 
+		<repository> 
+			<id>sonatype-nexus-snapshots</id> 
+			<name>Sonatype Nexus Snapshots</name> 
+			<url> https://oss.sonatype.org/content/repositories/snapshots </url> 
+			<releases> 
+				<enabled>false</enabled> 
+			</releases> 
+			<snapshots> 
+				<enabled>true</enabled> 
+			</snapshots> 
+		</repository> 
+	</repositories>
+	
+</project>
